@@ -1,4 +1,4 @@
-adwentures_of_tom_sawer = \
+adwentures_of_tom_sawer = ("""
 Tom gave up the brush with reluctance in his .... face but alacrity
 in his heart. And while
 the late steamer
@@ -17,52 +17,54 @@ out, Johnny Miller bought
 in for a dead rat and a string to swing it with—and so on, and so on,
 hour after hour. And when the middle of the afternoon came, from being a
 poor poverty, stricken boy in the .... morning, Tom was literally
-rolling in wealth.'''
-
+rolling in wealth.""")
 adwentures_of_tom_sawer = adwentures_of_tom_sawer.replace("\n", " ")
-print(adwentures_of_tom_sawer)
+
+##  ПЕРЕЗАПИСУЙТЕ зміст змінної adwentures_of_tom_sawer у завданнях 1-3
+# task 01 ==
+adwentures_of_tom_sawer = adwentures_of_tom_sawer.replace("\n", " ")
 
 # task 02 ==
-""" Замініть .... на пробіл
-"""
+adwentures_of_tom_sawer = adwentures_of_tom_sawer.replace("....", " ")
 
 # task 03 ==
-""" Зробіть так, щоб у тексті було не більше одного пробілу між словами.
-"""
+import re
+adwentures_of_tom_sawer = re.sub(r'\s+', ' ', adwentures_of_tom_sawer)
 
 
 # task 04
-""" Виведіть, скількі разів у тексті зустрічається літера "h"
-"""
+h_count = adwentures_of_tom_sawer.count('h')
+print("Occurrences of 'h':", h_count)
 
 
 # task 05
-""" Виведіть, скільки слів у тексті починається з Великої літери?
-"""
+capital_words = sum(1 for word in adwentures_of_tom_sawer.split() if word.istitle())
+print("Words starting with capital letter:", capital_words)
+
 
 
 # task 06
-""" Виведіть позицію, на якій слово Tom зустрічається вдруге
-"""
+first_tom_index = adwentures_of_tom_sawer.find('Tom')
+second_tom_index = adwentures_of_tom_sawer.find('Tom', first_tom_index + 1)
+print("Second occurrence of 'Tom':", second_tom_index)
 
 
 # task 07
-""" Розділіть змінну adwentures_of_tom_sawer по кінцю речення.
-Збережіть результат у змінній adwentures_of_tom_sawer_sentences
-"""
+adwentures_of_tom_sawer_sentences = re.split(r'(?<=[.!?])\s+', adwentures_of_tom_sawer)
 adwentures_of_tom_sawer_sentences = None
 
 # task 08
-""" Виведіть четверте речення з adwentures_of_tom_sawer_sentences.
-Перетворіть рядок у нижній регістр.
-"""
+if len(adwentures_of_tom_sawer_sentences) >= 4:
+    print("Fourth sentence (lowercase):", adwentures_of_tom_sawer_sentences[3].lower())
+
 
 
 # task 09
-""" Перевірте чи починається якесь речення з "By the time".
-"""
+starts_with_phrase = any(sentence.startswith("By the time") for sentence in adwentures_of_tom_sawer_sentences)
+print("Does any sentence start with 'By the time'?:", starts_with_phrase)
 
 
 # task 10
-""" Виведіть кількість слів останнього речення з adwentures_of_tom_sawer_sentences.
-"""
+last_sentence_word_count = len(adwentures_of_tom_sawer_sentences[-1].split())
+print("Number of words in the last sentence:", last_sentence_word_count)
+
